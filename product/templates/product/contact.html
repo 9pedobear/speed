@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+   <div class="contact_section layout_padding">
+      <div class="container">
+         <h1 class="contact_text"><strong>Связаться с нами</strong></h1>
+      </div>
+            <div class="contact_main">
+               <div class="enput_section">
+                  <div class="email_box">
+                    <div class="input_main">
+
+                       <div class="container">
+                          <form action="{% url 'contact' %}" method="post">
+                              {% csrf_token %}
+                              {{ form_for_temp.as_ul }}
+
+                              <div class="send_btn">
+                                <button type="submit" class="main_bt">Send</button>
+                              </div>
+                          </form>   
+                       </div>
+                    </div>
+                 </div>
+               </div>
+            </div>
+   </div>
+
+{% endblock %}

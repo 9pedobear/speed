@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+   <!-- about section start -->
+   <div class="container-fluid">
+   <div class="about_section">
+      <div class="container">
+         <div class="about_img"><img src="{% static 'images/about-img1.png' %}" style="max-width: 100%;"></div>
+         <h2 class="about_text"><strong>About <span style="color: #000;">Us</span></strong></h2>
+         <div class="about_middle">
+            <p class="about_lorem">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it </p>
+         </div>
+         <div class="red_bt">
+            <button class="read_more">Read More</button>
+         </div>
+      </div>
+   </div>
+   </div>
+   <!-- about section end -->
+   <!-- our section start -->
+   <div class="our_section">
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-12">
+               <h1 class="our_text"><strong>Our <span style="color: #000;">Cycles</span></strong></h1>
+               <p class="about_lorem">t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum</p>
+            </div>
+         </div>
+      </div>
+      <div class="our_section_2">
+         <div class="our_main">
+            <div id="my_slider" class="carousel slide" data-ride="carousel">
+               <div class="carousel-inner">
+               <div class="carousel-item active">
+                  <img class="d-block w-100" src="{% static 'images/our-img-1.png' %}" alt="First slide">
+               </div>
+               <div class="carousel-item">
+                  <img class="d-block w-100" src="{% static 'images/our-img-1.png' %}" alt="Second slide">
+               </div>
+               <div class="carousel-item">
+                 <img class="d-block w-100" src="images/our-img-1.png" alt="Third slide">
+               </div>
+            </div>
+               <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
+                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                 <span class="sr-only">Previous</span>
+               </a>
+               <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
+                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                 <span class="sr-only">Next</span>
+               </a>
+            </div>
+          </div>
+          <button class="seemore_bt">See More</button>
+      </div>
+   </div>
+   <div class="contact_section layout_padding">
+      <div class="container">
+         <h1 class="contact_text"><strong>Contact Us</strong></h1>
+      </div>
+            <div class="contact_main">
+               <div class="enput_section">
+                  <div class="email_box">
+                    <div class="input_main">
+                       <div class="container">
+                          <form action="/action_page.php">
+                            <div class="form-group">
+                              <input type="text" class="email-bt" placeholder="Name" name="Name">
+                            </div>
+                            <div class="form-group">
+                              <input type="text" class="email-bt" placeholder="Email" name="Name">
+                            </div>
+                            <div class="form-group">
+                              <input type="text" class="email-bt" placeholder="Phone Numbar" name="Email">
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>
+                            </div>
+                          </form>   
+                       </div> 
+                       <div class="send_btn">
+                        <button type="button" class="main_bt"><a href="#">Send</a></button>
+                       </div>                   
+                    </div>
+                 </div>
+               </div>
+            </div>
+   </div>
+   <!-- our section end -->
+   <!-- Testimonial section start -->
+   <div class="testimonial_section layout_padding">
+      <div class="container">
+         <h1 class="contact_text"><strong>Testimonial</strong></h1>
+         <p class="dolore_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna  </p>
+         <div class="images_3"><img src="images/img-3.png"></div>
+         <h2 class="rooty_text">Rooty</h2>
+         <p class="ice_text">(lcc)</p>
+         <div><img src="images/left-quote.png"></div>
+         <p class="dolore_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore  , quis nostrud exercitation </p>
+         <div class="right_quote"><img src="images/right-quote.png"></div>
+      </div> 
+   </div>
+{% endblock %}
