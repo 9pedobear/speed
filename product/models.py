@@ -30,7 +30,7 @@ class Product(models.Model):
     def __str__(self):
         return self.title
 
-class Feedback(models.Model):
+class Contact(models.Model):
     name = models.CharField(
         max_length=255,
         blank=True,
@@ -48,6 +48,35 @@ class Feedback(models.Model):
     )
     created = models.DateTimeField(
         auto_now_add=True,
+    )
+
+    def __str__(self):
+        return f'{self.name}'
+
+class Feedback(models.Model):
+    title = models.CharField(
+        max_length=255,
+        blank=True,
+    )
+    file = models.FileField(
+        upload_to='images/%Y/%m/%d',
+        blank=True
+    )
+    context = models.TextField(
+        blank=True
+    )
+    name = models.CharField(
+        max_length=255,
+        blank=True
+    )
+    created = models.DateTimeField(
+        auto_now_add=True
+    )
+    update = models.DateTimeField(
+        auto_now=True
+    )
+    is_published = models.BooleanField(
+        default=True
     )
 
     def __str__(self):

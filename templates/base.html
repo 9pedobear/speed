@@ -52,25 +52,24 @@
         <div class="container-fluid">
          <div class="row">
 
-<!--            <form action="{#{% url 'search' %}#}" method="get">-->
-<!--               <div class="col-sm-4">-->
-<!--               <input type="search" name="search" id="">-->
-<!--                  {#{% for item in products %}#}-->
-<!--                     Название: {#{{ item.title }}#}-->
-<!--                     Цена: {#{{ item.price }}#}-->
-<!--                  {#{% endfor %}#}-->
-
-<!--            </div>-->
-<!--            </form>-->
+            <form action="{% url 'search' %}" method="get">
+               <div class="col-sm-4">
+               <input type="search" name="search" id="">
+            </div>
+            </form>
             <div class="col-sm-4">
                <div class="logo"><img src="{% static 'images/logo.png' %}"></div>
             </div>
             <div class="col-sm-4">
                <div class="togle_3">
                   <div class="left_main">
+                     {% if request.user.is_authenticated %}
+                     Добро пожаловать  {{ user.username }} | <a href="{% url 'logout' %}">Logout</a>
+                     {% else %}
                      <div class="menu_main">
-                        <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+                        <a href="{% url 'login' %}"><i class="fa fa-fw fa-user"></i> Login</a>
                      </div>
+                     {% endif %}
                   </div>
                   <div class="middle_main">
                      <div class="shoping_bag"><img src="{% static 'images/shopping-bag.png' %}"></div>
@@ -162,6 +161,15 @@
 
 
    {% block content %}
+<div class="form-group">
+                  {% for item in products %}
+                     <h3>Название: {{ item.title }}</h3>
+                     <h3>Цена: {{ item.price }}</h3>
+                     <h3>Фото: <img src="{{ item.file.url }}" width="500"></h3>
+
+                  {% endfor %}
+</div>
+
    {% endblock content %}
 
 
@@ -201,12 +209,19 @@
             <div class="col-sm-4">
                <h2 class="important_text">Subscribe With Us</h2>
                <p class="footer_lorem_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga</p>
+
+               <form action="post">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+
                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="text" aria-label="Recipient's username" aria-describedby=" basic-addon2">
-                  <div class="input-group-append">
-                     <span class="input-group-text" id="basic-addon2">Subscribe</span>
+                  <button type="submit">
+                     Отправить
+                  </button>
                   </div>
-               </div>
+
+               </form>
+
             </div>
          </div>
       </div>

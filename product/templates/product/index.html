@@ -90,15 +90,15 @@
    <!-- our section end -->
    <!-- Testimonial section start -->
    <div class="testimonial_section layout_padding">
+      {% for item in feedback_tmp %}
       <div class="container">
          <h1 class="contact_text"><strong>Testimonial</strong></h1>
-         <p class="dolore_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna  </p>
-         <div class="images_3"><img src="images/img-3.png"></div>
-         <h2 class="rooty_text">Rooty</h2>
-         <p class="ice_text">(lcc)</p>
-         <div><img src="images/left-quote.png"></div>
-         <p class="dolore_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore  , quis nostrud exercitation </p>
-         <div class="right_quote"><img src="images/right-quote.png"></div>
-      </div> 
+         <div class="images_3"><img src="{{ item.file.url }}" width="500"></div>
+         <h2 class="rooty_text">{{ item.name }}</h2>
+         <div><img src="{% static 'images/left-quote.png' %}"></div>
+         <p class="dolore_text">{{ item.context }} </p>
+         <div class="right_quote"><img src="{% static 'images/right-quote.png' %}"></div>
+      </div>
+      {% endfor %}
    </div>
 {% endblock %}
