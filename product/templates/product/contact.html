@@ -13,7 +13,7 @@
                        <div class="container">
                           <form action="{% url 'contact' %}" method="post">
                               {% csrf_token %}
-                              {{ form_for_temp.as_ul }}
+                              {{ contact_form.as_p }}
 
                               <div class="send_btn">
                                 <button type="submit" class="main_bt">Send</button>

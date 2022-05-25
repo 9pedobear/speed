@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from .models import Product, Feedback
+from .models import Product, Feedback, Contact
 from .forms import ContactForm, EmailForm
 from .forms import UserRegistrationForm, UserAuthenticationForm
 from django.contrib.auth import login, logout
@@ -63,11 +63,14 @@ class HomeView(ListView):
 
 
 
-def about(request):
-    return render(
-        request,
-        'product/about.html'
-    )
+# def about(request):
+#     return render(
+#         request,
+#         'product/about.html'
+#     )
+
+class AboutView(ListView):
+    template_name = 'product/about.html'
 
 def gallery(request):
     products = Product.objects.all()
@@ -96,24 +99,24 @@ def search(request):
 
 
 # --------------------CREATE------------------------
-def contact(request):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            data = form.save()
-            # data = Feedback.objects.create(**form.cleaned_data)
-            return redirect('contact')
-    else:
-        form = ContactForm()
-    context = {
-        'form_for_temp': form,
-    }
-    return render(request, 'product/contact.html', context)
+# def contact(request):
+#     if request.method == 'POST':
+#         form = ContactForm(request.POST)
+#         if form.is_valid():
+#             data = form.save()
+#             # data = Feedback.objects.create(**form.cleaned_data)
+#             return redirect('contact')
+#     else:
+#         form = ContactForm()
+#     context = {
+#         'form_for_temp': form,
+#     }
+#     return render(request, 'product/contact.html', context)
 
-# class ContactView(CreateView):
-#     form = ContactForm
-#     context_object_name = 'form_for_temp'
-#     template_name = 'product/contact.html'
+class ContactView(CreateView):
+    model = Contact
+    fields = ('name', 'email', 'phone', 'massage')
+    template_name = 'product/contact.html'
 
 
 
